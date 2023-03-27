@@ -40,21 +40,26 @@ function buildTree(val_list) {
 }
 
 var hasPathSum = function (root, targetSum) {
-    let res = false;
+    let res = [];
 
-    function findCurSum(root, curSum) {
+    function findCurSum(root, curpath) {
         if (!root) return;
+        curpath.push(root.val);
+
         if (!root.left && !root.right) {
-            curSum += root.val;
+            const curSum = curpath.reduce((pre, cur) => pre + cur, 0);
             if (curSum === targetSum) {
-                res = ture;
+                res.push([...curpath]);
             }
         }
-        if (root.left) findCurSum(root.left, curSum + root.val)
-        if (root.right) findCurSum(root.right + root.val + root.val);
+
+        if (root.left) findCurSum(root.left, curpath);
+        if (root.right) findCurSum(root.right, curpath);
+
+        curpath.pop();
     }
 
-    findCurSum(root, 0);
+    findCurSum(root, []);
     return res;
 };
 
