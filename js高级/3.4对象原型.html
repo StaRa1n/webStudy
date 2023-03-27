@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person() {
+        this.eyes = 2;
+        this.head = 1;
+    }
+
+    function Woman() { };
+
+    //Woman通过原型继承Person
+    //子类的原型 = new 父类
+    Woman.prototype = new Person();
+    //指回原来的构造函数
+    Woman.prototype.constructor = Woman;
+    //给女人添加一个方法
+
+    Woman.prototype.baby = function () {
+        console.log('孩子');
+    }
+
+    const red = new Woman();
+    console.log(red);
+    console.log(red.__proto__.constructor);
+    red.baby();
+
+</script>
+
+</html>

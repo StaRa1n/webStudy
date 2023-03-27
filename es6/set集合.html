@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //set声明与方法
+    // let s = new Set(['one', 'two', 'three', 'four', 'five']);
+
+    // console.log(s.size);
+
+    // s.add('six');
+    // s.delete('two');
+    // s.clear();
+    // console.log(s);
+
+    let arr = [1, 2, 1, 3, 4, 2, 1]
+    //1.数组去重
+    let arr1 = [...new Set(arr)];
+    console.log(arr1);  //[1, 2, 3, 4]
+
+    //2.交集
+    let arr2 = [3, 8, 5, 4, 4];
+    let result = [...new Set(arr)].filter(function (items) {
+        let result2 = new Set(arr2)  //3,8,5,4
+        if (result2.has(items)) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    console.log(result);  //[3, 4]
+
+    //3.并集
+    let sum = new Set([...arr, ...arr2]);
+    console.log([...sum]); //[1, 2, 3, 4, 8, 5];
+
+    //4.差集
+    //简化filiter
+    let result1 = [...new Set(arr)].filter(items => !(new Set(arr2).has(items)));
+    console.log(result1);  //[1, 2]
+
+</script>
+
+</html>

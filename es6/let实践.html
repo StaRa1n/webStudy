@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .items {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>点击切换颜色</h1>
+        <div class="l"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+    </div>
+</body>
+<script>
+    let box_list = document.getElementsByClassName('items');
+
+    // box_list[1].onclick = function () {
+    //     box_list[0].style.backgroud = 'pink';
+    //     console.log(box_list[0].style.backgroud);
+    // }
+    // for (let i = 0; i < box_list.length; i++) {
+    //     box_list[i].onclick = function () {
+    //         box_list[i].style.background = 'pink';
+    //     }
+    // }
+
+    box_list[0].addEventListener("click", function () {
+
+        setTimeout(() => {
+            this.style.background = 'pink';
+        }, 1000)
+
+
+    })
+
+    var add = (a, b) => {
+        return a + b;
+    }
+
+    var pow = function (p) {
+        return p * p;
+    }
+
+
+    console.log(add(1, 2));
+    console.log(pow(8));
+</script>
+
+</html>

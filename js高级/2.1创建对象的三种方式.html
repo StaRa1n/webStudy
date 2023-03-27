@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width==device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const obj = new Object({
+        //     name: 'jiangcai'
+        // });
+        // console.log(obj);
+
+        function School(name, location) {
+            this.name = name;
+            this.location = location;
+            function fn() {
+                console.log(111);
+            }
+            this.fun = function () {
+                console.log(111);
+            }
+        }
+
+        const jiangcai = new School('江财', '南昌');
+        const nanda = new School('南大')
+        console.log(jiangcai);//School {name: '江财', location: '南昌'}
+        console.log(nanda);//School {name: '南大', location: undefined}
+    </script>
+</body>
+
+</html>

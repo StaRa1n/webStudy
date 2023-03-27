@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 实例化promise对象
+    // const p = new Promise((resolve, reject) => {
+    //     reject('error');
+    // })
+
+    // p.then(function (value) {
+    //     console.log(value);
+    // }, function (reason) {
+    //     console.error(reason);
+    // })
+
+
+    //Promise.then()
+    const pro = new Promise((resole, reject) => {
+        resole('succes');
+        // reject('error');
+    })
+
+    const p = pro.then(value => {
+        console.log(value);
+    }, reason => {
+        console.log(reason);
+    })
+
+
+    console.log(p);
+</script>
+
+</html>

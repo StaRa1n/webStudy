@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    class LinkedNode {
+        constructor() {
+            this.head = null;
+            this.size = 0;
+        }
+
+        append(data) {
+            const node = new Node(data);
+            let current = this.head;
+            if (this.head === null) {
+                this.head = node;
+            } else {
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = node;
+            }
+            this.size++;
+        }
+
+        appendAt(index, data) {
+            let node = new Node(data)
+            let current = this.head;
+            if (index === 0) {
+                node.next = this.head;
+                this.head = node;
+            } else {
+                for (let i = 0; i < index - 1; i++) {
+                    current = current.next;
+                }
+                node.next = current.next;
+                current.next = node;
+            }
+            this.size++;
+        }
+
+        remove(val) {
+            let current = this.head;
+            while (current) {
+                if (!current.next.data) {
+                    break;
+                } else if (current.next.data === val) {
+                    current.next = current.next.next;
+                }
+                current = current.next;
+            }
+            return current;
+        }
+
+        show() {
+            let current = this.head;
+            let list = '';
+            while (current) {
+                list += `[${current.data}] -> `;
+                current = current.next
+            }
+            console.log(list);
+        }
+
+    }
+
+
+
+
+    const list = new LinkedNode;
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    list.appendAt(2, 0);
+    list.remove(1);
+    list.show()
+
+
+</script>
+
+</html>

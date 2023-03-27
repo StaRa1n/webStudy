@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: #873e3e;
+        text-align: center;
+        line-height: 200px;
+        font-size: 50px;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    let box = document.querySelector('.box');
+
+    let i = 0
+    function fn() {
+        box.innerHTML = i++;
+    }
+
+    function debounce(fn, t) {
+        let timer;
+        return function () {
+            if (timer) clearTimeout(timer);
+            timersetTimeout(function () {
+                fn()
+            }, t)
+        }
+    }
+
+    function throttle(fn, t) {
+        let timer;
+        return function () {
+            if (!timer) {
+                timer = setTimeout(function () {
+                    fn();
+                    timer = null;
+                }, t)
+            }
+        }
+    }
+
+    box.addEventListener('mousemove', throttle(fn, 200));
+</script>
+
+</html>

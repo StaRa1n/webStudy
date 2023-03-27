@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let m = new Map();
+    //添加元素('键名','值')
+    m.set('name', '张桂阳');
+    m.set('fun', function () {
+        console.log("函数作键值");
+    })
+    let Key = {
+        School: '江财'
+    }
+    m.set(Key, ['北京', '上海']);
+
+
+    // m = {  改变数据类型为对象
+    //     name: '刘备'
+    // }
+    console.log(m);
+
+    //获取
+    console.log(m.get('fun'));
+
+
+</script>
+
+</html>

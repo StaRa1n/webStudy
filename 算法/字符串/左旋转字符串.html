@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reverseLeftWords = function (s, n) {
+            function reverse(startIndex, endIndex, arr) {
+                while (startIndex < endIndex) {
+                    [arr[startIndex], arr[endIndex]] = [arr[endIndex], arr[startIndex]];
+                    startIndex++;
+                    endIndex--;
+                }
+            }
+
+            const arr = Array.from(s);
+            reverse(0, n - 1, arr);
+            reverse(n, arr.length - 1, arr);
+            reverse(0, arr.length - 1, arr);
+
+            return arr.join('');
+        };
+
+        let s = 'asdfghj';
+        console.log(reverseLeftWords(s, 2));
+    </script>
+</body>
+
+</html>

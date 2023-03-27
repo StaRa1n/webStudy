@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 生成器是特殊函数，在函数声明时带上*
+    // yield：函数代码的分隔符（暂停执行），再次执行函数执行下一代码块
+    function* print() {
+        //三个yield分割成4个代码区
+        console.log(111);
+        let one = yield '分隔符一';
+        console.log(one);
+        yield '分隔符二';
+        console.log(333);
+        yield '分隔符三';
+        console.log(444);
+    }
+
+    let iter = print();
+    iter.next();
+
+    iter.next('一');//带有实参的next函数表示将上一个yield返回的结果转换为参数
+
+    iter.next();
+    // 遍历
+    // for (let i of print()){
+    //     console.log(i);
+    // }
+
+
+</script>
+
+
+</html>

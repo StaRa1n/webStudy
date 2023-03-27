@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.music {
+    height: 100vh;
+    line-height: 1;
+    overflow: hidden;
+}
+
+header {
+    font-size: 24px;
+    margin: 31px 0 33px 0;
+    padding: 0 20px;
+    /* position: absolute;
+    top: 31px;
+    left: 20px;
+    background-color: #574b4b; */
+}
+
+header .iconfont {
+    font-size: 24px;
+}
+
+.desc {
+    display: flex;
+    padding: 0 18px;
+}
+
+.music-img {
+    width: 140px;
+    margin-right: 18px;
+    box-shadow: 0px 8px 10px 0px rgba(195, 60, 17, 0.25);
+}
+
+.desc-content {
+    /* 将剩下的空间全部继承 */
+    flex: 1;
+}
+
+.desc-content p:nth-child(1) {
+    font-weight: bolder;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.desc-content p:nth-child(2) {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.list {
+    margin-top: 35px;
+}
+
+.nav {
+    margin: 0 19px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 10px;
+}
+
+.nav .iconfont {
+    font-size: 24px;
+}
+
+.nav span:nth-child(2) {
+    margin-right: 14px;
+}
+
+.list-content {
+    height: calc(100vh - 89px - 142px - 35px - 35px - 65px);
+    overflow-y: scroll;
+}
+
+.list-content ul {
+    padding-bottom: 20px;
+}
+
+.list-content ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin-top: 20px;
+}
+
+.list-content .music-inf {
+    flex: 1;
+    margin-left: 23px;
+}
+
+.list-content .music-inf p:nth-child(1) {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.list-content .music-inf p:nth-child(2) {
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.play-menu {
+    height: 65px;
+    width: calc(100vw - 40px);
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.play-menu img {
+    width: 44px;
+    margin-right: 18px;
+}
+
+.play-menu .music-ifo {
+    flex: 1;
+}
+
+.play-menu p:nth-child(1) {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.play-menu p:nth-child(2) {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.play-menu .icon-Playerfastforward {
+    font-size: 30px;
+    color: #5497de;
+}
+
+.play-menu .icon-shipinbofangshibofang {
+    font-size: 35px;
+    color: #5497de;
+    padding: 0;
+    display: block;
+}
+
+.play-menu .icon-zanting1 {
+    font-size: 35px;
+    color: #5497de;
+    display: none;
+}

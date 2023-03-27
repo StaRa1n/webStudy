@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //let 只在代码块生效
+    {
+        let a = 10;
+        var b = 22;
+    }
+    //console.log(a);报错
+
+    // 暂时性死区，如果区块中存在let和const命令，这个区块对这些命令声明的变量，
+    // 从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+    // 使用let命令声明变量之前，该变量都是不可用的
+    // 先声明后使用
+    var test = 100;
+    for (let i = 0; i < 10; i++) {
+        test += 1;
+    }
+    console.log(test);
+    for (let i = 0; i < 10; i++) {
+        test += 1;
+        // let test;报错
+    }
+    console.log(test);
+
+
+
+</script>
+
+</html>

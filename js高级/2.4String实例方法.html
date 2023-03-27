@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // split 根据分隔符把字符串转换为数组
+    const str = 'zhang,gui,yang';
+    const str1 = '零一二三四五六七八九十'
+    console.log(str.split(','));//['zhang', 'gui', 'yang']
+
+    //substring 字符串截取    substring(开始索引号[, 结束索引号])
+    console.log(str1.substring(5, 8));//五六七
+
+    //startsWith 是否为某字符开头    startsWith(字符串[, 起时索引号])
+    console.log(str.startsWith('zhang'));//ture
+    console.log(str1.startsWith('四五六'));//false
+    console.log(str1.startsWith('四五六', 4));//ture
+
+    //includes 是否包含该字符串      includes(字符串[, 起时索引号])
+    console.log(str.includes('zhang')); //ture
+    console.log(str.includes('zhang', 5)); //false
+</script>
+
+</html>

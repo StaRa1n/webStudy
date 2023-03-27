@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        function reverseWords(s) {
+            const arr = Array.from(s);
+            removeExtraSpaces(arr);
+            console.log(arr.length)
+            arr.reverse();
+
+            let startIndex = 0;
+            let endIndex = 0;
+            for (let i = 0; i <= arr.length; i++) {
+                if (arr[i] === ' ' || !arr[i]) {
+                    endIndex = i - 1;
+                    reverse(startIndex, endIndex, arr);
+                    startIndex = i + 1;
+                }
+            }
+            return arr.join('');
+        }
+
+
+        //移除多余空格
+        function removeExtraSpaces(arr) {
+            let fastIndex = 0;
+            let slowIndex = 0;
+            //删除多余空格
+            while (fastIndex < arr.length) {
+                if (arr[fastIndex] === ' ' && (arr[fastIndex - 1] === ' ' || fastIndex === 0)) {
+                    fastIndex++;
+                } else {
+                    arr[slowIndex++] = arr[fastIndex++];
+                }
+            }
+            //删除末尾空格
+            arr.length = arr[slowIndex - 1] === ' ' ? slowIndex - 1 : slowIndex;
+        }
+
+
+        //翻转start到end的字符
+        function reverse(startIndex, endIndex, arr) {
+            while (startIndex < endIndex) {
+                [arr[startIndex], arr[endIndex]] = [arr[endIndex], arr[startIndex]];
+                startIndex++;
+                endIndex--;
+            }
+        }
+
+        let s = 'asd    qwe    zxc  ';
+        console.log(reverseWords(s));
+    </script>
+</body>
+
+</html>

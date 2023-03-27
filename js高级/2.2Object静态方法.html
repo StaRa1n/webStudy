@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const o = { name: 'jiangcai', age: 18 }
+    //1.获取所有属性名
+    console.log(Object.keys(o));//返回数组['name', 'age']
+    //2.获取所有属性值
+    console.log(Object.values(o));//['jiangcai', 18]
+    //3.将o拷贝(合并)给obj对象， 给对象添加新的属性
+    const obj = {};
+    Object.assign(obj, o);
+    console.log(obj);
+</script>
+
+</html>

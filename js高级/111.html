@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function checkForm() {
+            //Get the data from the form
+            var username = document.getElementById('usernameInput').value;
+            var password = document.getElementById('passwordInput').value;
+
+            //Check data
+            if (username == "admin" && password == "password") {
+                alert("Login Successful!");
+                return true;
+            }
+            else {
+                alert("Invalid username or password!");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return checkForm()">
+        Username: <input type="text" name="username" id="usernameInput" /><br />
+        Password: <input type="password" name="password" id="passwordInput" /><br />
+        <input type="submit" value="Login" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function getValue() {
+    //     return [100, 60];
+    // }
+
+    // const [max, min] = getValue();
+    // console.log(max);
+
+    // const arr = [100, 60, 80];
+    //数组结构 赋值
+    // const [max, min, avg, sum] = arr;//max=100, min=60, avg=80, sum=undefined
+    // const [a, b] = arr;// a=100, b=60
+    // const [a, ...b] = arr;// a=100, b=[60, 80]真数组
+    //设置默认值
+    // const [a = 0, b = 0] = [100] //a=100, b=0
+    //按需导入
+    // const [a, , c] = [1, 2, 3];// a=1, c=3
+    //多维数组
+    // const [a, [b, c]] = [1, [2, 3]];
+
+
+    //**结构对象
+    //属性名和变量名必须一致
+    // const { name, school, fn } = {
+    //     name: 'zhang',
+    //     school: 'jiangcai',
+    //     fn: function () {
+    //         console.log('我在酱菜上学');
+    //     }
+    // }
+    //重新改名
+    const { name: username } = {
+        name: 'gui'
+    }
+    //数组对象的解构，先解构数组，再解构对象
+    const [{ uname: myname }] = [
+        {
+            uname: 'yang'
+        }
+    ]
+    //多级对象解构
+    const { name, family: { mother, father } } = {
+        name: 'zhangguiyang',
+        family: {
+            mother: 'mom',
+            father: 'dad'
+        },
+        age: 20
+    }
+
+    console.log(mother);
+</script>
+
+</html>

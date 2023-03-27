@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //双指针
+    class Node {
+        constructor(val) {
+            this.val = val;
+            this.next = null;
+        }
+
+        node
+    }
+
+    class LinkNode {
+        constructor() {
+            this.head = head;
+            this.size = 0;
+        }
+    }
+
+    function reverse(head) {
+        if (!head || !head.next) {
+            return head;
+        }
+        let pre = null;
+        let temp = null;
+        let current = head;
+        while (current.next) {
+            temp = current.next;
+            current.next = pre;
+            pre = current;
+            current = temp;
+        }
+    }
+
+    let head = new Node()
+
+    temp.next.next = temp.next.next.next;
+    temp.next.next.next = temp.next;
+    temp.next = temp.next.next;
+    temp = temp.next;
+
+    console.log(head);
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function getUsers() {
+        setTimeout(() => {
+            let data = '用户数据';
+            iterator.next(data);//将上一个yield返回的结果转变为data
+        }, 1000);
+    }
+
+    function getOrders() {
+        setTimeout(function () {
+            let data = '订单数据';
+            iterator.next(data);
+        }, 1000);
+    }
+
+    function getPhone() {
+        setTimeout(function () {
+            let data = '联系方式';
+            iterator.next(data);
+        }, 1000);
+    }
+
+    function* gen() {
+        let users = yield getUsers();
+        console.log(users);
+        let orders = yield getOrders();
+        console.log(orders);
+        let phone = yield getPhone();
+        console.log(phone);
+    }
+
+    // 调用生成器函数
+    let iterator = gen();
+    iterator.next();
+
+</script>
+
+</html>

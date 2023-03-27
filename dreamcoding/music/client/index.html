@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3976007_9ak67x8426.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="music">
+
+        <header>
+            <span class="iconfont icon-zuojiantou"></span>
+            <span>Explore</span>
+            <!-- <span class="iconfont icon-shenglvehao"></span> -->
+        </header>
+        <div class="desc">
+            <div class="pic">
+                <img class="music-img"
+                    src="https://th.bing.com/th/id/R.ecc8dccebfb97e525f2b164d2eff05cf?rik=J8yNYpaPn5sqXQ&pid=ImgRaw&r=0"
+                    alt="" srcset="">
+            </div>
+            <div class="desc-content">
+                <p class="music-name">Music-Name</p>
+                <p class="singer">Singer</p>
+            </div>
+        </div>
+        <div class="list">
+            <div class="nav">
+                <span>Playlist</span>
+                <span>
+                    <i class="iconfont icon-menu"></i>
+                </span>
+            </div>
+            <div class="list-content">
+                <ul class="musicifo-list">
+                    <!-- <li data-url = ''>
+                        <span class="index">1</span>
+                        <div class="music-inf">
+                            <p>Music name</p>
+                            <p>Singer</p>
+                        </div>
+                        <span class="iconfont icon-gengduo"></span>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="play-menu">
+            <div class="img">
+                <img src="https://th.bing.com/th/id/R.ecc8dccebfb97e525f2b164d2eff05cf?rik=J8yNYpaPn5sqXQ&pid=ImgRaw&r=0"
+                    alt="">
+            </div>
+            <div class="music-ifo">
+                <p class="music-name">Music-name</p>
+                <p class="singer">Singer</p>
+            </div>
+            <audio src="http://music.163.com/song/media/outer/url?id=167876.mp3"></audio>
+            <span class="iconfont icon-Playerfastforward"></span>
+            <span class="iconfont icon-shipinbofangshibofang"></span>
+            <span class="iconfont icon-zanting1"></span>
+        </div>
+    </div>
+</body>
+<script>
+    let audio = document.querySelector('audio');
+    let pause = document.querySelector('.icon-zanting1');
+    let play = document.querySelector('.icon-shipinbofangshibofang');
+
+    pause.addEventListener('click', () => {
+        pause.style.display = 'none';
+        play.style.display = 'block';
+        audio.pause();
+    })
+
+    play.addEventListener('click', () => {
+        pause.style.display = 'block';
+        play.style.display = 'none';
+        audio.play();
+    })
+
+    fetch('http://localhost:3000')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // console.log(data)
+            let ul = document.querySelector('.musicifo-list');
+            let musicName = document.querySelectorAll('.music-name');
+            let singer = document.querySelectorAll('.singer');
+
+            for (let i = 0; i < data.length; i++) {
+                //插入歌曲列表
+                let li = window.document.createElement('li');
+                li.innerHTML = `<span class="index">${i + 1}</span>
+                                <div class="music-inf">
+                                    <p>${data[i].name}</p>
+                                    <p>${data[i].singer}</p>
+                                </div>
+                                <span class="iconfont icon-gengduo"></span>`;
+                //设置标签内属性
+                li.setAttribute('data-url', data[i].url);
+
+                //点击列表播放
+                li.addEventListener('click', function () {
+                    audio.src = data[i].url;
+                    audio.play();
+                    //更新歌曲信息
+                    musicName[0].innerHTML = data[i].name;
+                    singer[0].innerHTML = data[i].singer;
+                    musicName[1].innerHTML = data[i].name;
+                    singer[1].innerHTML = data[i].singer;
+                    //播放状态
+                    // console.log(pause.style.display)
+                    pause.style.display = 'block';
+                    play.style.display = 'none';
+                })
+                ul.appendChild(li);
+            }
+        })
+
+
+
+</script>
+
+</html>
