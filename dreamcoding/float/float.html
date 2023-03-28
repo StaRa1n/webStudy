@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box1 {
+        float: left;
+    }
+
+    .box1 {
+        margin-left: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: #4c2d2d;
+    }
+
+    /* 伪元素 */
+    .box1::before {
+        content: '';
+        display: block;
+        height: 100px;
+        width: 50px;
+        background-color: #000000;
+    }
+
+    .box3 {
+        width: 3px;
+        height: 100px;
+        background-color: #6dac35;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="box1">
+    </div>
+</body>
+
+</html>

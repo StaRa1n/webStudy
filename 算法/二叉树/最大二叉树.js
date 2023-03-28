@@ -4,15 +4,33 @@ function TreeNode(val, left, right) {
     this.right = (right === undefined) ? null : right;
 }
 
+function leverLoadTree(root) {
+    const res = [];
+    const arr = [];
+    res.push(root)
+    while (res.length) {
+        let cur = res.shift();
+        arr.push(cur.val);
+
+        if (cur.left) res.push(cur.left);
+        if (cur.right) res.push(cur.right);
+    }
+    return arr;
+
+}
+
 var constructMaximumBinaryTree = function (nums) {
     if (nums.length === 0) {
         return null;
     }
+
+    if (nums.length === 0) return 'null';
     let root = new TreeNode();
     if (nums.length === 1) {
         root.val = nums[0];
         return root;
     }
+
 
     let maxVlaue = 0;
     let maxIndex = 0;
@@ -31,4 +49,10 @@ var constructMaximumBinaryTree = function (nums) {
 
 };
 let sums = [3, 2, 1, 6, 0, 5];
+<<<<<<< HEAD
 console.log(constructMaximumBinaryTree(sums));
+=======
+const root = constructMaximumBinaryTree(sums);
+console.log(root);
+console.log(leverLoadTree(root));
+>>>>>>> 09a71bbe48529d5cf659b312ede9e75730c1d931
