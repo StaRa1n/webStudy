@@ -16,6 +16,7 @@ function leverLoadTree(root) {
         if (cur.right) res.push(cur.right);
     }
     return arr;
+
 }
 
 var constructMaximumBinaryTree = function (nums) {
