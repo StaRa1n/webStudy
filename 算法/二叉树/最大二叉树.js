@@ -49,10 +49,7 @@ var constructMaximumBinaryTree = function (nums) {
 
 };
 let sums = [3, 2, 1, 6, 0, 5];
-<<<<<<< HEAD
 console.log(constructMaximumBinaryTree(sums));
-=======
 const root = constructMaximumBinaryTree(sums);
 console.log(root);
 console.log(leverLoadTree(root));
->>>>>>> 09a71bbe48529d5cf659b312ede9e75730c1d931
