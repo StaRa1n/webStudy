@@ -5,6 +5,9 @@ function TreeNode(val, left, right) {
 }
 
 var constructMaximumBinaryTree = function (nums) {
+    if (nums.length === 0) {
+        return null;
+    }
     let root = new TreeNode();
     if (nums.length === 1) {
         root.val = nums[0];
@@ -22,10 +25,10 @@ var constructMaximumBinaryTree = function (nums) {
     }
 
     root.left = constructMaximumBinaryTree(nums.slice(0, maxIndex));
-    // root.right = constructMaximumBinaryTree(nums.slice(maxIndex + 1, nums.length));
+    root.right = constructMaximumBinaryTree(nums.slice(maxIndex + 1, nums.length));
 
     return root;
 
 };
-let sums = [1, 2, 7, 4, 5];
+let sums = [3, 2, 1, 6, 0, 5];
 console.log(constructMaximumBinaryTree(sums));
