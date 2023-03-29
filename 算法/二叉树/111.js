@@ -1,1 +1,1 @@
-console.log(1 + null)
+console.log(12 + null)

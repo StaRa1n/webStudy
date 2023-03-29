@@ -20,6 +20,10 @@ function leverLoadTree(root) {
 }
 
 var constructMaximumBinaryTree = function (nums) {
+    if (nums.length === 0) {
+        return null;
+    }
+
     if (nums.length === 0) return 'null';
     let root = new TreeNode();
     if (nums.length === 1) {
@@ -45,6 +49,7 @@ var constructMaximumBinaryTree = function (nums) {
 
 };
 let sums = [3, 2, 1, 6, 0, 5];
+console.log(constructMaximumBinaryTree(sums));
 const root = constructMaximumBinaryTree(sums);
 console.log(root);
 console.log(leverLoadTree(root));

@@ -39,33 +39,14 @@ function buildTree(val_list) {
     return root;
 }
 
-var buildTree = function (inorder, postorder) {
-    if (postorder.length === 0) return null;
+var searchBST = function (root, val) {
+    if (root === null || root.val === val) return root;
 
-    const root = new TreeNode(postorder[postorder.length - 1])
-
-    if (postorder.length === 1) return root;
-
-    let index = 0;
-    for (index; index < inorder.length; index++) {
-        if (inorder[index] === root.val)
-            break;
-    }
-
-    let inLeftArr = inorder.slice(0, index);
-    let inRightArr = inorder.slice(index + 1, inorder.length);
-
-    let postLeftArr = postorder.slice(0, index);
-    let postRightArr = postorder.slice(index, postorder.length - 1);
-
-    root.left = buildTree(inLeftArr, postLeftArr);
-    root.right = buildTree(inRightArr, postRightArr);
-
-    return root;
+    let result = null;
+    if (root.left && root.val > val) result = searchBST(root.left, val);
+    if (root.right && root.val < val) result = searchBST(root.right, val);
+    return result;
 };
 
-let inorder = [9, 3, 15, 20, 7];
-let postorder = [9, 15, 7, 20, 3];
-
-console.log(buildTree(inorder, postorder));
-// console.log(inorder.slice(1, 3));
+let root = [4, 2, 7, 1, 3], val = 5;
+console.log(searchBST(root, val));
