@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='root'>
+        <h1>今天天气很{{weather}}</h1>
+        <button @click='change'>点击切换天气</button>
+        <br><br>
+        <h1>{{Number.a}}</h1>
+        <button @click="Number.a++">点我a+1</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                isHot: true,
+                Number: {
+                    a: 1,
+                    b: 2
+                }
+            },
+            computed: {
+                weather() {
+                    return this.isHot ? '炎热' : '凉爽'
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot
+                }
+            },
+            watch: {
+                Number: {
+                    deep: true,
+                    handler(newValue, oldValue) {
+                        console.log(newValue, oldValue);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
