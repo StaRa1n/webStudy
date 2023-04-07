@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin-top: 10px;
+    }
+
+    .basic {
+        width: 400px;
+        border: 1px solid black;
+        height: 100px;
+    }
+
+    .bgc1 {
+        background-color: #32a861;
+    }
+
+    .bgc2 {
+        background-color: #0c1831;
+    }
+
+    .bgc3 {
+        background-color: #c91948;
+    }
+
+    .add1 {
+        border-radius: 15px;
+    }
+
+    .add2 {
+        font-size: 40px;
+    }
+
+    .add3 {
+        border: 5px solid black;
+    }
+</style>
+
+<body>
+    <div id='root'>
+        <!-- 字符串写法：类名不确定,需要动态指定 -->
+        <div class="basic" :class="bgc1" @click="changeColor">text</div>
+        <!-- 数组写法：个数不确定,名字也不确定 -->
+        <div class="basic" :class="arr.slice(0,1)">text</div>
+        <!-- 对象写法：个数确定，名字确定 -->
+        <div class="basic" :class="Obj" :style="styObj">text</div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                bgc1: 'bgc1',
+                arr: ['add1', 'add2', 'add3'],
+                Obj: {
+                    add1: false,
+                    add2: true
+                },
+                styObj: {
+                    color: 'rgb(25,206,100)'
+                }
+            },
+            methods: {
+                changeColor() {
+                    const arr = ['bgc1', 'bgc2', 'bgc3']
+                    this.bgc1 = arr[Math.floor(Math.random() * 3)]
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
