@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="/favicon.ico" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="root">
+        <h2>计算属性实现搜索</h2>
+        <input type="text" v-model="computekeyword" placeholder="请输入名字">
+        <button @click="ageupsort">年龄升序</button>
+        <button @click="agedownsort">年龄降序</button>
+        <ul>
+            <li v-for="(person, index) in comperson" :key="person.id">
+                {{person.name}}-{{person.age}}
+            </li>
+        </ul>
+
+        <h2>监视属性实现搜索</h2>
+        <input type="text" v-model="watchkeyword" placeholder="请输入名字">
+        <ul>
+            <li v-for="(person, index) in filperson" :key="person.id">
+                {{person.name}}-{{person.age}}
+            </li>
+        </ul>
+    </div>
+
+
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+
+    new Vue({
+        el: '#root',
+        data: {
+            computekeyword: '',
+            watchkeyword: '',
+            person: [
+                { id: 001, name: '周杰伦', age: 18 },
+                { id: 002, name: '周冬雨', age: 19 },
+                { id: 003, name: '张杰', age: 16 },
+                { id: 004, name: '张宇', age: 20 }
+            ],
+            filperson: [] //作为中转属性
+        },
+        methods: {
+            ageupsort() {
+                this.person.sort((a, b) => {
+                    return a.age - b.age
+                })
+            },
+            agedownsort() {
+                this.person.sort((a, b) => {
+                    return b.age - a.age
+                })
+            }
+        },
+        //计算属性实现搜索
+        computed: {
+            comperson() {
+                return this.person.filter((p) => {
+                    //indexOf返回是否含有该字符的下标，无则返回-1，字符串都含有空字符且返回0
+                    return p.name.indexOf(this.computekeyword) !== -1
+                })
+            }
+        },
+        //监视属性实现搜索
+        watch: {
+            watchkeyword: {
+                immediate: true,
+                handler(newval) {
+                    this.filperson = this.person.filter((p) => {
+                        return p.name.indexOf(newval) !== -1
+                    })
+                }
+            }
+        }
+
+    })
+</script>
+
+</html>
