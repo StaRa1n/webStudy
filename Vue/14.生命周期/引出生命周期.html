@@ -13,10 +13,12 @@
 
 <body>
     <div id="root">
-        <h1>当前n值为: <span v-text="n"></span></h1>
-        <h1>当前n值为: <span v-big="n"></span></h1>
-        <button @click="n++">点我n+1</button>
+        <h1 :style="{opacity}">江西财经大学</h1>
+        <button @click.once="changeOpacity">点我变化透明度</button>
     </div>
+
+
+
 </body>
 <script type="text/javascript">
     Vue.config.productionTip = false;
@@ -24,14 +26,17 @@
     new Vue({
         el: '#root',
         data: {
-            n: 1
+            opacity: 1
         },
-        directives: {
-            big(element, binding) {
-                console.log(element, binding)
-                element.innerHTML = binding.value
+
+        methods: {
+            changeOpacity() {
+                setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity < 0) this.opacity = 1
+                }, 16)
             }
-        }
+        },
     })
 </script>
 
