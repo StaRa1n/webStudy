@@ -1,0 +1,22 @@
+var findTargetSumWays = function (nums, target) {
+    //作为加法的数的总和为x,减法的数的总和为sum - x，则有x-（sum-x）= target
+    // x = (sum + target) / 2
+    const sum = nums.reduce((pre, cur) => pre + cur)
+    let x = (sum + target) / 2
+    if (x & 1) return 0
+
+    const dp = Array(x + 1).fill(0)
+
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = target + 1; j > sum[i]; j--) {
+            dp[j] += dp[j - nums[i]]
+        }
+    }
+
+    return dp[dp.length - 1]
+};
+
+
+const arr = [1, 1, 1, 1, 1]
+
+console.log((findTargetSumWays(arr, 3)));
