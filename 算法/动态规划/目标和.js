@@ -6,9 +6,10 @@ var findTargetSumWays = function (nums, target) {
     if (x & 1) return 0
 
     const dp = Array(x + 1).fill(0)
+    dp[0] = 1
 
     for (let i = 0; i < nums.length; i++) {
-        for (let j = target + 1; j > sum[i]; j--) {
+        for (let j = x; j >= nums[i]; j--) {
             dp[j] += dp[j - nums[i]]
         }
     }
