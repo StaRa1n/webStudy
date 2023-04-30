@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST请求</title>
+</head>
+<style>
+  #demo {
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <div id="demo"></div>
+</body>
+<script>
+  const box = document.getElementById('demo')
+  window.onkeydown = () => {
+    const xhr = new XMLHttpRequest()
+    //设置响应体的数据类型
+    xhr.responseType = 'json'
+
+    xhr.open('POST', 'http://127.0.0.1:8000/json-server')
+
+    xhr.send()
+
+    
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 200 && xhr.status <= 300) {
+          //手动数据转换
+          // const data = JSON.parse(xhr.response)
+          //自动转换(先设置响应体数据类型)
+          box.innerHTML = xhr.response.school
+        }
+      }
+    }
+  }
+
+</script>
+
+</html>

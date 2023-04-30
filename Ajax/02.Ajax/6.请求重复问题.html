@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>请求重复问题</title>
+</head>
+<style>
+  .demo {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <button>点我发送请求</button>
+  <button>点我取消请求</button>
+</body>
+<script>
+  const box = document.getElementsByClassName('demo')[0]
+  const btn = document.getElementsByTagName('button')
+
+  let xhr = null
+  
+  let isSending = false //标识变量
+
+  btn[0].onclick = () => {
+    if (isSending) xhr.abort()
+
+    xhr = new XMLHttpRequest()
+    //如果正在发送同一个请求,取消上一个
+    xhr.open('GET', 'http://127.0.0.1:8000/delay')
+
+    isSending = true //修改标识变量
+    
+    xhr.send()
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        isSending = false //修改标识变量
+      }
+    }
+  }
+
+  btn[1].onclick = () => {
+    xhr.abort()//取消请求
+  }
+</script>
+
+</html>
