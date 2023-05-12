@@ -5,20 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./promise.js"></script>
+  <script src="./promise_class.js"></script>
 </head>
 <body>
   <script>
     const p = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('111') 
-      });
+        resolve('111')
+      }, 1000);
+      // throw('404')
     })
-    const p2 = Promise.reject('222')
-    const p3 = Promise.resolve('333')
 
-    const p4 = Promise.race([p, p2, p3])
-    console.log(p4);
+    console.log(p);
+
+    p.then(value => {
+      console.log(value);
+    }, reason => {
+      console.warn(reason);
+    })
   </script>
 </body>
 </html>
