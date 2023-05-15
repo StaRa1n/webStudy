@@ -5,24 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./promise_class.js"></script>
+  <!-- <script src="./promise_class.js"></script> -->
 </head>
 <body>
-  <script>
+  <script type="module">
+    // import {Promise} from "./promise2.js"
     const p = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('111')
-      }, 1000);
-      // throw('404')
+        resolve(111)
     })
 
-    console.log(p);
+    console.log(p)
 
-    p.then(value => {
-      console.log(value);
-    }, reason => {
-      console.warn(reason);
-    })
+     p.then()
+        .then(value => { console.log(222); })
+        .then(value => { console.log(333); })
+        .catch(reason => { console.warn(reason); });
+
+    
+
   </script>
 </body>
 </html>
